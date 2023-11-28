@@ -34,7 +34,9 @@
             }
             lastMadded = messages.log.length;
     });
-
+    window.addEventListener('beforeunload',()=>{
+      socket.emit('onWindowClose');
+    })
     socket.on('disconnect', () => {
       console.log('Disconnected from server');
     });
